@@ -650,6 +650,12 @@ A breaking migration that cannot preserve terminal evidence requires keeping the
 alongside the new installation or starting a new ledger namespace. It must never silently rewrite
 history.
 
+A major-version upgrade must not replace the current installation in place without migration
+instructions published by the new major version. Before upgrading, preserve the old standard,
+templates, status ledger, and terminal records in a versioned archive. Resolve non-terminal records
+or map each one explicitly in a human-approved migration manifest. Never reuse implementation IDs
+or silently reinterpret records under the new standard.
+
 ## 15. Removal
 
 Removal is a human-authorized repository migration, not an automatic cleanup. Before removing:
