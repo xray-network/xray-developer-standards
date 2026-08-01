@@ -4,6 +4,16 @@ Status-Version: v1
 
 This is the only lifecycle and decision-proof ledger for all implementation records.
 
+## Repo implementation status
+
+Target: repo
+
+### Implementation ledger
+
+| ID | Instruction | State | Result | Evidence mode | Decision proof |
+| --- | --- | --- | --- | --- | --- |
+| `0001` | [Instruction](./implementations/repo/0001-IMPL-INSTR.md) | `ACCEPTED` | [Result](./implementations/repo/0001-IMPL-RESULT.md) | `LOCAL` | Human requested installation of XRAY Updates. |
+
 ## Design implementation status
 
 Target: design
@@ -25,16 +35,6 @@ Target: homepage
 | --- | --- | --- | --- | --- | --- |
 
 No implementation records.
-
-## Repo implementation status
-
-Target: repo
-
-### Implementation ledger
-
-| ID | Instruction | State | Result | Evidence mode | Decision proof |
-| --- | --- | --- | --- | --- | --- |
-| `0001` | [Instruction](./implementations/repo/0001-IMPL-INSTR.md) | `ACCEPTED` | [Result](./implementations/repo/0001-IMPL-RESULT.md) | `LOCAL` | Human requested installation of XRAY Updates. |
 
 ## Updates implementation status
 
