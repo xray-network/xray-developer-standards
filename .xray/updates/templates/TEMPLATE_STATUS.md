@@ -19,9 +19,9 @@ Target: <target>
 
 ### Implementation ledger
 
-| ID | Instruction | State | Result | Evidence mode | Decision proof |
-| --- | --- | --- | --- | --- | --- |
-| `0001` | [Instruction](./implementations/0001-IMPL-INSTR.md) | `ACCEPTED` | [Result](./implementations/0001-IMPL-RESULT.md) | `LOCAL` | Human requested installation of XRAY Updates. |
+| ID | Title | Instruction | State | Result | Evidence mode | Decision proof |
+| --- | --- | --- | --- | --- | --- | --- |
+| `0001` | Install XRAY Updates | [Instruction](./implementations/0001-IMPL-INSTR.md) | `ACCEPTED` | [Result](./implementations/0001-IMPL-RESULT.md) | `LOCAL` | Human requested installation of XRAY Updates. |
 ```
 
 In flat mode, replace `<Target>` and `<target>` with the repository name and slug, and use flat
@@ -35,6 +35,8 @@ Rules:
 - Monorepo target sections are unique and ordered by target slug.
 - Every new installation has exactly one `ACCEPTED` bootstrap row at flat `0001` or `repo/0001`.
 - IDs are four digits, unique within the applicable sequence, and ordered ascending.
+- Title is a two-to-eight-word plain-language objective label with no ending punctuation. It must
+  agree with the instruction objective.
 - Each row links one matching instruction and, once required, its result.
 - Evidence mode matches the instruction.
 - States are `PLANNED`, `REVIEW`, `ACCEPTED`, `REJECTED`, or `CANCELLED`.

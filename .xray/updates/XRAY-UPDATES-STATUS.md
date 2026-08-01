@@ -10,9 +10,9 @@ Target: repo
 
 ### Implementation ledger
 
-| ID | Instruction | State | Result | Evidence mode | Decision proof |
-| --- | --- | --- | --- | --- | --- |
-| `0001` | [Instruction](./implementations/repo/0001-IMPL-INSTR.md) | `ACCEPTED` | [Result](./implementations/repo/0001-IMPL-RESULT.md) | `LOCAL` | Human requested installation of XRAY Updates. |
+| ID | Title | Instruction | State | Result | Evidence mode | Decision proof |
+| --- | --- | --- | --- | --- | --- | --- |
+| `0001` | Install XRAY Updates | [Instruction](./implementations/repo/0001-IMPL-INSTR.md) | `ACCEPTED` | [Result](./implementations/repo/0001-IMPL-RESULT.md) | `LOCAL` | Human requested installation of XRAY Updates. |
 
 ## Design implementation status
 
@@ -20,8 +20,8 @@ Target: design
 
 ### Implementation ledger
 
-| ID | Instruction | State | Result | Evidence mode | Decision proof |
-| --- | --- | --- | --- | --- | --- |
+| ID | Title | Instruction | State | Result | Evidence mode | Decision proof |
+| --- | --- | --- | --- | --- | --- | --- |
 
 No implementation records.
 
@@ -31,8 +31,8 @@ Target: homepage
 
 ### Implementation ledger
 
-| ID | Instruction | State | Result | Evidence mode | Decision proof |
-| --- | --- | --- | --- | --- | --- |
+| ID | Title | Instruction | State | Result | Evidence mode | Decision proof |
+| --- | --- | --- | --- | --- | --- | --- |
 
 No implementation records.
 
@@ -42,7 +42,7 @@ Target: updates
 
 ### Implementation ledger
 
-| ID | Instruction | State | Result | Evidence mode | Decision proof |
-| --- | --- | --- | --- | --- | --- |
+| ID | Title | Instruction | State | Result | Evidence mode | Decision proof |
+| --- | --- | --- | --- | --- | --- | --- |
 
 No implementation records.

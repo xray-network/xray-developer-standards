@@ -93,7 +93,8 @@ Every new installation creates implementation `0001` documenting installation of
 The instruction uses `LOCAL` evidence, has no dependencies or provider evidence, and limits its
 objective to installing and validating the XRAY Updates tracking structure. The result records all
 created or changed tracking paths and actual validation outcomes. After successful validation, the
-ledger row is `ACCEPTED` with Decision proof `Human requested installation of XRAY Updates.`
+ledger row uses Title `Install XRAY Updates`, state `ACCEPTED`, and Decision proof
+`Human requested installation of XRAY Updates.`
 
 This is a narrow bootstrap exception to the normal planning and acceptance workflow. The current
 human's installation request is the explicit acceptance decision; the installer does not infer it
@@ -280,8 +281,8 @@ changes.
    out-of-scope item, and blocker.
 7. If a material question remains unresolved, record it as a blocker and do not create a
    misleading `PLANNED` row.
-8. Create `NNNN-IMPL-INSTR.md` and its matching `PLANNED` ledger row in the same change. Do not
-   create a result or modify source.
+8. Create `NNNN-IMPL-INSTR.md` and its matching `PLANNED` ledger row in the same change. Give the
+   row a short title matching the instruction objective. Do not create a result or modify source.
 
 Every change row receives a stable Change ID such as `C01`. IDs are unique within the instruction
 and are used unchanged by the result.
@@ -381,9 +382,9 @@ Target: <target>
 
 ### Implementation ledger
 
-| ID | Instruction | State | Result | Evidence mode | Decision proof |
-| --- | --- | --- | --- | --- | --- |
-| `0001` | [Instruction](./implementations/0001-IMPL-INSTR.md) | `ACCEPTED` | [Result](./implementations/0001-IMPL-RESULT.md) | `LOCAL` | Human requested installation of XRAY Updates. |
+| ID | Title | Instruction | State | Result | Evidence mode | Decision proof |
+| --- | --- | --- | --- | --- | --- | --- |
+| `0001` | Install XRAY Updates | [Instruction](./implementations/0001-IMPL-INSTR.md) | `ACCEPTED` | [Result](./implementations/0001-IMPL-RESULT.md) | `LOCAL` | Human requested installation of XRAY Updates. |
 ```
 
 In flat mode, replace `<Target>` and `<target>` with the repository name and slug, and use flat
@@ -397,6 +398,8 @@ Rules:
 - Monorepo target sections are unique and ordered by target slug.
 - Every new installation has exactly one `ACCEPTED` bootstrap row at flat `0001` or `repo/0001`.
 - IDs are four digits, unique within the applicable sequence, and ordered ascending.
+- Title is a two-to-eight-word plain-language objective label with no ending punctuation. It must
+  agree with the instruction objective.
 - Each row links one matching instruction and, once required, its result.
 - Evidence mode matches the instruction.
 - States are `PLANNED`, `REVIEW`, `ACCEPTED`, `REJECTED`, or `CANCELLED`.
@@ -421,8 +424,8 @@ Target: <target>
 
 ### Implementation ledger
 
-| ID | Instruction | State | Result | Evidence mode | Decision proof |
-| --- | --- | --- | --- | --- | --- |
+| ID | Title | Instruction | State | Result | Evidence mode | Decision proof |
+| --- | --- | --- | --- | --- | --- | --- |
 
 No implementation records.
 ```
@@ -647,6 +650,7 @@ An installation or update is valid only when all applicable checks pass:
 - All Markdown links intended to be repository-relative resolve.
 - Target/provider slugs and four-digit IDs are valid.
 - IDs are unique, ascending, and never reused.
+- Every ledger row has a concise Title that agrees with its instruction objective.
 - Each ledger row has exactly one matching instruction.
 - Required states have exactly one matching result; optional states have at most one.
 - Instruction, result, and ledger implementation IDs, evidence modes, and links agree.
