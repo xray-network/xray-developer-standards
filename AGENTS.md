@@ -2,4 +2,4 @@
 
 This repository uses the following XRAY standards:
 
-- Read `XRAY-UPDATES.md` before planning or implementing tracked changes.
+- Read `.xray/updates/XRAY-UPDATES.md` before planning or implementing tracked changes.

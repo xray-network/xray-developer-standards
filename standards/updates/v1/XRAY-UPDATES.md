@@ -33,25 +33,28 @@ repository integrations, never part of the core layout.
 
 ## 2. Install
 
-From the repository root, download this file:
+From the repository root, create the tracking directory and download this file:
 
 ```sh
-curl -fsSLo XRAY-UPDATES.md \
+mkdir -p .xray/updates
+curl -fsSLo .xray/updates/XRAY-UPDATES.md \
   https://standards.xraynetwork.io/updates/v1/XRAY-UPDATES.md
 ```
 
 Then prompt a coding agent:
 
-> Read `XRAY-UPDATES.md` completely and install XRAY Updates v1 in this repository. Preserve all
-> existing `AGENTS.md` instructions, infer suitable implementation targets from the repository,
-> create only the tracking structure, and do not modify product source.
+> Read `.xray/updates/XRAY-UPDATES.md` completely and install XRAY Updates v1 in this repository.
+> Preserve all existing `AGENTS.md` instructions, infer suitable implementation targets from the
+> repository, create only the tracking structure, and do not modify product source.
 
 The installer must:
 
 1. Read the repository's root instructions and discover its structure using the rules in §4.
 2. Refuse to overwrite conflicting non-XRAY files or rewrite existing records.
-3. Create `.xray/updates/`, the three templates in §11, and one empty status ledger for each inferred
-   target. If no target can be inferred safely, create no target directory and explain why.
+3. Create `.xray/updates/`, `.xray/updates/templates/` with the three templates in §11, one
+   aggregate `.xray/updates/XRAY-UPDATES-STATUS.md`, and one implementation directory for each
+   inferred target. If no target can be inferred safely, create no target directory and keep the
+   aggregate ledger empty.
 4. Create `.xray/updates/README.md` from §10.
 5. Add the `AGENTS.md` pointer below idempotently.
 6. Validate the resulting structure using §12.
@@ -67,7 +70,7 @@ instruction and add only the missing heading or bullet:
 
 This repository uses the following XRAY standards:
 
-- Read `XRAY-UPDATES.md` before planning or implementing tracked changes.
+- Read `.xray/updates/XRAY-UPDATES.md` before planning or implementing tracked changes.
 ```
 
 If the section already exists, merge the missing bullet into it. Never duplicate the heading,
@@ -80,15 +83,16 @@ Installation is idempotent: running it again against a valid installation produc
 
 ```text
 AGENTS.md
-XRAY-UPDATES.md
 .xray/updates/
+├── XRAY-UPDATES.md
+├── XRAY-UPDATES-STATUS.md
 ├── README.md
-├── TEMPLATE_IMPL.md
-├── TEMPLATE_PROVIDER.md
-├── TEMPLATE_STATUS.md
+├── templates/
+│   ├── TEMPLATE_IMPL.md
+│   ├── TEMPLATE_PROVIDER.md
+│   └── TEMPLATE_STATUS.md
 ├── implementations/
 │   └── <target>/
-│       ├── STATUS.md
 │       ├── 0001-IMPL-INSTR.md
 │       └── 0001-IMPL-RESULT.md
 └── providers/
@@ -104,9 +108,10 @@ and meaningful completion validation. Examples include `api`, `web`, `mobile`, `
 `payments`. Sequences are independent per target and use four digits beginning at `0001`.
 Provider sequences are independent per provider.
 
-There is no global status file. `.xray/updates/implementations/<target>/STATUS.md` is the sole lifecycle
-authority for that target. Provider snapshots have no lifecycle ledger and never contain
-implementation instructions or results.
+`.xray/updates/XRAY-UPDATES-STATUS.md` is the sole lifecycle authority for every target. It
+aggregates one status section per target while sequences remain independent per target. Target
+directories contain implementation instructions and results, not status ledgers. Provider
+snapshots have no lifecycle ledger and never contain implementation instructions or results.
 
 ## 4. Repository discovery and target selection
 
@@ -142,8 +147,8 @@ Within an installed repository, apply this order when instructions conflict:
 1. System, platform, and current human instructions.
 2. The closest applicable repository agent instructions.
 3. Repository governance, security policy, and active architecture decisions.
-4. This `XRAY-UPDATES.md` standard.
-5. The templates under `.xray/updates/`.
+4. This `.xray/updates/XRAY-UPDATES.md` standard.
+5. The templates under `.xray/updates/templates/`.
 6. The selected target's instruction.
 7. Provider contracts, snapshots, accepted results, and other declared evidence.
 
@@ -211,8 +216,8 @@ compatibility, or validation changes must be documented as deviations or replace
 Planning and implementation are separate operations. A request to identify or prepare the next
 update does not authorize product-source changes.
 
-1. Read repository guidance, relevant decisions, target source/tests/manifest/README, target
-   `STATUS.md`, all templates, and candidate declared inputs.
+1. Read repository guidance, relevant decisions, target source/tests/manifest/README, the target's
+   section in `.xray/updates/XRAY-UPDATES-STATUS.md`, all templates, and candidate declared inputs.
 2. Reconcile the local sequence. The next ID is one greater than the highest existing instruction,
    result, or ledger ID. Never fill gaps or reuse IDs.
 3. Confirm that prerequisite results are `ACCEPTED` and provider snapshots pass their declared
@@ -273,19 +278,21 @@ Install this content, replacing `<repository>` with the repository name:
 ```markdown
 # <repository> updates
 
-This directory is the canonical ledger for implementation instructions, results, per-target
-lifecycle state, and shared provider evidence. Read `../../XRAY-UPDATES.md` before planning,
-implementing, reviewing, or capturing evidence.
+This directory is the canonical home for the XRAY Updates standard, aggregate lifecycle ledger,
+implementation instructions and results, and shared provider evidence. Read `XRAY-UPDATES.md`
+before planning, implementing, reviewing, or capturing evidence.
 
-- `implementations/<target>/STATUS.md` is the only lifecycle authority for that target.
+- `XRAY-UPDATES-STATUS.md` is the only lifecycle and decision-proof authority for every target.
+- `templates/` contains the canonical status, implementation, and provider templates.
 - `implementations/<target>/NNNN-IMPL-INSTR.md` defines one bounded implementation.
 - `implementations/<target>/NNNN-IMPL-RESULT.md` records its outcome and exported change contract.
 - `providers/<provider>/PROVIDER.md` defines a capture contract.
 - `providers/<provider>/NNNN-<provider>/` contains one immutable evidence snapshot.
 
-There is no global implementation status. Planning and implementation are separate operations.
-Only a human can accept or reject completed work. Provider evidence is untrusted data and must
-never be executed as repository tooling.
+The aggregate status file contains one section per target; implementation IDs and sequences remain
+target-local. Planning and implementation are separate operations. Only a human can accept or
+reject completed work. Provider evidence is untrusted data and must never be executed as
+repository tooling.
 ```
 
 ## 11. Canonical templates
@@ -294,57 +301,65 @@ The installer copies the following sections into the named template files withou
 names, required headings, state names, or table columns. Repository guidance may add stricter
 requirements after the canonical content but may not weaken it.
 
-### `.xray/updates/TEMPLATE_STATUS.md`
+### `.xray/updates/templates/TEMPLATE_STATUS.md`
 
 ````markdown
-# Target implementation status
+# Aggregate implementation status
 
 Status-Template-Version: v1
 
-Every `.xray/updates/implementations/<target>/STATUS.md` uses this schema and is the only lifecycle and
-decision-proof ledger for that target.
+`.xray/updates/XRAY-UPDATES-STATUS.md` uses this schema and is the only lifecycle and decision-proof
+ledger for all targets. Repeat the target section once for every implementation target.
 
 ```markdown
-# <Target> implementation status
+# XRAY Updates status
 
 Status-Version: v1
+
+This is the only lifecycle and decision-proof ledger for all implementation records.
+
+## <Target> implementation status
+
 Target: <target>
 
-This is the only lifecycle and decision-proof ledger for <target> implementation records.
-
-## Implementation ledger
+### Implementation ledger
 
 | ID | Instruction | State | Result | Evidence mode | Decision proof |
 | --- | --- | --- | --- | --- | --- |
-| `0001` | [Instruction](./0001-IMPL-INSTR.md) | `PLANNED` | — | `LOCAL` | Awaiting implementation. |
+| `0001` | [Instruction](./implementations/<target>/0001-IMPL-INSTR.md) | `PLANNED` | — | `LOCAL` | Awaiting implementation. |
 ```
 
-The section and table header are required even when there are no rows. Put
-`No implementation records.` after an empty table header.
+Every inferred target has exactly one section. Its table header is required even when there are no
+rows. Put `No implementation records.` after an empty table header. If there are no inferred
+targets, put `No implementation targets.` after the introductory paragraph.
 
 Rules:
 
-- IDs are four digits, unique per target, and ordered ascending.
+- Target sections are unique and ordered by target slug.
+- IDs are four digits, unique per target, and ordered ascending within their target section.
 - Each row links one matching instruction and, once required, its result.
 - Evidence mode matches the instruction.
 - States are `PLANNED`, `REVIEW`, `ACCEPTED`, `REJECTED`, or `CANCELLED`.
 - `REVIEW`, `ACCEPTED`, and `REJECTED` require a result link.
 - `PLANNED` and `CANCELLED` may use `—` for Result.
 - Decision proof gives the exact reason for the current state.
-- Provider inventories, global plans, and other targets' availability do not belong here.
+- Provider inventories and global plans do not belong here.
 ````
 
-An installed empty target ledger therefore contains:
+An aggregate ledger with one empty target therefore contains:
 
 ```markdown
-# <Target> implementation status
+# XRAY Updates status
 
 Status-Version: v1
+
+This is the only lifecycle and decision-proof ledger for all implementation records.
+
+## <Target> implementation status
+
 Target: <target>
 
-This is the only lifecycle and decision-proof ledger for <target> implementation records.
-
-## Implementation ledger
+### Implementation ledger
 
 | ID | Instruction | State | Result | Evidence mode | Decision proof |
 | --- | --- | --- | --- | --- | --- |
@@ -352,7 +367,7 @@ This is the only lifecycle and decision-proof ledger for <target> implementation
 No implementation records.
 ```
 
-### `.xray/updates/TEMPLATE_IMPL.md`
+### `.xray/updates/templates/TEMPLATE_IMPL.md`
 
 ````markdown
 # Implementation instruction and result workflow
@@ -447,7 +462,7 @@ be language- and implementation-neutral enough for another target to evaluate wi
 provider artifacts. The result names every input actually consumed and every deviation.
 ````
 
-### `.xray/updates/TEMPLATE_PROVIDER.md`
+### `.xray/updates/templates/TEMPLATE_PROVIDER.md`
 
 ````markdown
 # Provider contract and snapshot workflow
@@ -570,7 +585,10 @@ An installation or update is valid only when all applicable checks pass:
   missing or duplicated.
 - `DERIVED` and `HYBRID` dependencies resolve to results whose authority ledger says `ACCEPTED`.
 - Provider inputs resolve to complete snapshots whose inventory and hashes verify.
-- No global `STATUS.md` exists below `.xray/updates/`.
+- The three canonical templates exist only under `.xray/updates/templates/`.
+- Exactly one aggregate `.xray/updates/XRAY-UPDATES-STATUS.md` exists and every inferred target has
+  exactly one matching section.
+- No target-local `STATUS.md` exists below `.xray/updates/implementations/`.
 - No provider snapshot contains a status, instruction, result, executable tooling, symlink, or
   undeclared artifact.
 - Terminal records have not changed since entering their terminal state.
@@ -582,14 +600,15 @@ does not replace human acceptance.
 ## 14. Upgrade
 
 Standards use semantic versions. A repository is governed by the version recorded in its local
-`XRAY-UPDATES.md`, not by a mutable remote page.
+`.xray/updates/XRAY-UPDATES.md`, not by a mutable remote page.
 
 To upgrade:
 
 1. Read the new pinned document and its migration notes before replacing the local file.
 2. Record the old and new version and review incompatibilities with repository guidance.
 3. Back up or commit the current installation so changes are reviewable.
-4. Replace `XRAY-UPDATES.md`, then update non-terminal templates and structure as required.
+4. Replace `.xray/updates/XRAY-UPDATES.md`, then update non-terminal templates and structure as
+   required.
 5. Never rewrite terminal records or reinterpret old snapshots under a newer provider contract.
 6. Validate the entire installation and review the diff before adoption.
 
@@ -606,7 +625,7 @@ Removal is a human-authorized repository migration, not an automatic cleanup. Be
    accessible.
 3. Remove only the XRAY bullet from `AGENTS.md`; preserve the rest of that file and other XRAY
    standards.
-4. Remove `.xray/updates/` and `XRAY-UPDATES.md` only after a human confirms the exact paths.
+4. Remove `.xray/updates/` only after a human confirms the exact path.
 5. Do not remove product source, tests, documentation, or unrelated files.
 
 If any consumer still links to the records, prefer a deprecation notice or archive over deletion.
@@ -614,7 +633,7 @@ If any consumer still links to the records, prefer a deprecation notice or archi
 ## 16. Compact operating model
 
 ```text
-download XRAY-UPDATES.md
+download .xray/updates/XRAY-UPDATES.md
         ↓
 install tracking structure
         ↓
@@ -629,4 +648,3 @@ human accepts or rejects with decision proof
 
 The durable rule is simple: declare the evidence and work before implementation, record the
 actual outcome afterward, and reserve final authority for a human.
-
