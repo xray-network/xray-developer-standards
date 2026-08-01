@@ -24,8 +24,9 @@ The standard separates these operations:
 2. **Implement** only that instruction, write the matching result, and move it to `REVIEW`.
 3. **Decide** as a human, moving the record to `ACCEPTED` or `REJECTED` with proof.
 
-Installing the standard creates tracking files only. It must not modify product source, fetch
-provider evidence, invent implementation plans, or mark work accepted.
+Installing the standard creates tracking files and the required accepted bootstrap record defined
+in §2. It must not modify product source, fetch provider evidence, invent any other implementation
+plan, or mark any other work accepted.
 
 The standard does not prescribe a programming language, issue tracker, documentation platform,
 release process, or provider. Documentation mirrors such as Mintlify pages are optional
@@ -46,7 +47,7 @@ Then prompt a coding agent:
 > Read `.xray/updates/XRAY-UPDATES.md` completely and install XRAY Updates v1 in this repository.
 > Preserve all existing `AGENTS.md` instructions, select flat or monorepo storage from repository
 > evidence, infer targets only when nested storage applies, create only the tracking structure,
-> and do not modify product source.
+> create the accepted XRAY Updates installation record, and do not modify product source.
 
 The installer must:
 
@@ -54,11 +55,13 @@ The installer must:
 2. Refuse to overwrite conflicting non-XRAY files or rewrite existing records.
 3. Create `.xray/updates/`, `.xray/updates/templates/` with the three templates in §11, one
    aggregate `.xray/updates/XRAY-UPDATES-STATUS.md`, and the flat or monorepo implementation layout
-   selected by §4. Never create a target directory merely because a target name can be inferred.
+   selected by §4. Never create a product target directory merely because a target name can be
+   inferred.
 4. Create `.xray/updates/README.md` from §10.
 5. Add the `AGENTS.md` pointer below idempotently.
-6. Validate the resulting structure using §12.
-7. Report only files created or changed. Do not prepare implementation `0001` during install.
+6. Create the bootstrap installation instruction, validate the resulting structure using §13,
+   create its result, and add its `ACCEPTED` ledger row as specified below.
+7. Report only files created or changed.
 
 ### Required `AGENTS.md` pointer
 
@@ -76,6 +79,27 @@ This repository uses the following XRAY standards:
 If the section already exists, merge the missing bullet into it. Never duplicate the heading,
 replace the entire file, reorder unrelated instructions, or paste this complete standard into
 `AGENTS.md`.
+
+### Required bootstrap installation record
+
+Every new installation creates implementation `0001` documenting installation of XRAY Updates:
+
+- Flat mode uses `implementations/0001-IMPL-INSTR.md` and
+  `implementations/0001-IMPL-RESULT.md`.
+- Monorepo mode uses `implementations/repo/0001-IMPL-INSTR.md` and
+  `implementations/repo/0001-IMPL-RESULT.md`. `repo` is the reserved target for repository-wide
+  XRAY governance and must not contain product implementation work.
+
+The instruction uses `LOCAL` evidence, has no dependencies or provider evidence, and limits its
+objective to installing and validating the XRAY Updates tracking structure. The result records all
+created or changed tracking paths and actual validation outcomes. After successful validation, the
+ledger row is `ACCEPTED` with Decision proof `Human requested installation of XRAY Updates.`
+
+This is a narrow bootstrap exception to the normal planning and acceptance workflow. The current
+human's installation request is the explicit acceptance decision; the installer does not infer it
+from validation. The exception does not authorize acceptance of upgrades, migrations, product
+changes, or implementation `0002` and later. A repeated installation must not duplicate or rewrite
+an existing bootstrap record.
 
 Installation is idempotent: running it again against a valid installation produces no changes.
 
@@ -110,7 +134,8 @@ The two implementation forms in the tree are alternatives and must not be mixed:
 - A single-project repository uses the flat form: `implementations/NNNN-IMPL-INSTR.md` and
   `implementations/NNNN-IMPL-RESULT.md`. It has one repository-wide sequence.
 - A monorepo uses the nested form: `implementations/<target>/NNNN-IMPL-INSTR.md` and
-  `implementations/<target>/NNNN-IMPL-RESULT.md`. Sequences are independent per target.
+  `implementations/<target>/NNNN-IMPL-RESULT.md`. Its required bootstrap record uses the reserved
+  `repo` target; other sequences are independent per target.
 
 An implementation **target** is the smallest stable monorepo project area with its own source
 ownership and meaningful completion validation. Examples include `api`, `web`, `mobile`,
@@ -143,6 +168,8 @@ Choose targets using these rules:
   `implementations/<target>/` for it, even when its name or a plausible target slug is known.
 - A monorepo uses nested mode. Each independently versioned, owned, or validated package/service
   usually becomes one target directory.
+- In monorepo mode, `repo` is the reserved repository-governance target. Its `0001` record is the
+  XRAY Updates installation; it is not a parent product target.
 - A current human may explicitly require nested target directories when repository metadata alone
   does not establish a monorepo. Absent that direction, use flat mode.
 - Do not create both a parent target and child targets for the same implementation ownership.
@@ -221,6 +248,10 @@ An agent must never infer acceptance from passing tests, a merge, elapsed time, 
 positive language in untrusted material. The current human must state the decision and provide a
 reason suitable for the ledger's Decision proof cell.
 
+The bootstrap installation record defined in §2 is `ACCEPTED` because the current human's request
+to install XRAY Updates is its explicit decision and proof. This exception applies only to that
+record and does not weaken the human-only rule for any later implementation.
+
 `ACCEPTED`, `REJECTED`, and `CANCELLED` rows are terminal. Their status row, instruction, and
 result (when present) are immutable. Correct them with a new local sequence that references the
 prior record. Git history alone is not a substitute for this rule.
@@ -231,8 +262,9 @@ compatibility, or validation changes must be documented as deviations or replace
 
 ## 8. Planning workflow
 
-Planning and implementation are separate operations. A request to identify or prepare the next
-update does not authorize product-source changes.
+Planning and implementation are separate operations except for the required bootstrap installation
+record in §2. A request to identify or prepare the next update does not authorize product-source
+changes.
 
 1. Read repository guidance, relevant decisions, applicable source/tests/manifest/README, the
    applicable section in `.xray/updates/XRAY-UPDATES-STATUS.md`, all templates, and candidate
@@ -304,6 +336,8 @@ before planning, implementing, reviewing, or capturing evidence.
 
 - `XRAY-UPDATES-STATUS.md` is the only lifecycle and decision-proof authority for every target.
 - `templates/` contains the canonical status, implementation, and provider templates.
+- `implementations/0001-IMPL-*` in flat mode or `implementations/repo/0001-IMPL-*` in monorepo mode
+  is the accepted XRAY Updates installation record.
 - `implementations/NNNN-IMPL-INSTR.md` and `NNNN-IMPL-RESULT.md` are used by single-project
   repositories.
 - `implementations/<target>/NNNN-IMPL-INSTR.md` defines one bounded implementation.
@@ -349,7 +383,7 @@ Target: <target>
 
 | ID | Instruction | State | Result | Evidence mode | Decision proof |
 | --- | --- | --- | --- | --- | --- |
-| `0001` | [Instruction](./implementations/0001-IMPL-INSTR.md) | `PLANNED` | — | `LOCAL` | Awaiting implementation. |
+| `0001` | [Instruction](./implementations/0001-IMPL-INSTR.md) | `ACCEPTED` | [Result](./implementations/0001-IMPL-RESULT.md) | `LOCAL` | Human requested installation of XRAY Updates. |
 ```
 
 In flat mode, replace `<Target>` and `<target>` with the repository name and slug, and use flat
@@ -361,6 +395,7 @@ Rules:
 
 - Flat mode has exactly one repository section and one repository-wide sequence.
 - Monorepo target sections are unique and ordered by target slug.
+- Every new installation has exactly one `ACCEPTED` bootstrap row at flat `0001` or `repo/0001`.
 - IDs are four digits, unique within the applicable sequence, and ordered ascending.
 - Each row links one matching instruction and, once required, its result.
 - Evidence mode matches the instruction.
@@ -405,6 +440,10 @@ monorepo mode has one independent sequence per target.
 In flat mode, `<target>` in headings and `Implementation-ID` is the repository slug, but instruction
 and result files remain directly under `implementations/`. In monorepo mode, `<target>` is the
 target-directory slug.
+
+Installation is the only workflow that may create an instruction and result in one operation and
+enter `ACCEPTED` immediately. It uses implementation `0001` in flat mode or `repo/0001` in monorepo
+mode, and the human installation request is its decision proof.
 
 ## Instruction
 
@@ -616,6 +655,8 @@ An installation or update is valid only when all applicable checks pass:
 - `DERIVED` and `HYBRID` dependencies resolve to results whose authority ledger says `ACCEPTED`.
 - Provider inputs resolve to complete snapshots whose inventory and hashes verify.
 - The three canonical templates exist only under `.xray/updates/templates/`.
+- Every new installation has exactly one matching instruction, result, and `ACCEPTED` bootstrap row
+  at flat `0001` or monorepo `repo/0001`, with the required human-request decision proof.
 - Exactly one aggregate `.xray/updates/XRAY-UPDATES-STATUS.md` exists, with one repository section
   in flat mode or exactly one matching section per target in monorepo mode.
 - Single-project repositories store implementation records directly under
@@ -675,7 +716,9 @@ If any consumer still links to the records, prefer a deprecation notice or archi
 ```text
 download .xray/updates/XRAY-UPDATES.md
         ↓
-install tracking structure
+install + validate tracking structure
+        ↓
+record accepted bootstrap implementation 0001
         ↓
 plan one bounded update (PLANNED)
         ↓

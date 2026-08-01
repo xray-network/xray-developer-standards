@@ -21,7 +21,7 @@ Target: <target>
 
 | ID | Instruction | State | Result | Evidence mode | Decision proof |
 | --- | --- | --- | --- | --- | --- |
-| `0001` | [Instruction](./implementations/0001-IMPL-INSTR.md) | `PLANNED` | — | `LOCAL` | Awaiting implementation. |
+| `0001` | [Instruction](./implementations/0001-IMPL-INSTR.md) | `ACCEPTED` | [Result](./implementations/0001-IMPL-RESULT.md) | `LOCAL` | Human requested installation of XRAY Updates. |
 ```
 
 In flat mode, replace `<Target>` and `<target>` with the repository name and slug, and use flat
@@ -33,6 +33,7 @@ Rules:
 
 - Flat mode has exactly one repository section and one repository-wide sequence.
 - Monorepo target sections are unique and ordered by target slug.
+- Every new installation has exactly one `ACCEPTED` bootstrap row at flat `0001` or `repo/0001`.
 - IDs are four digits, unique within the applicable sequence, and ordered ascending.
 - Each row links one matching instruction and, once required, its result.
 - Evidence mode matches the instruction.

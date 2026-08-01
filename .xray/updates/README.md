@@ -6,6 +6,8 @@ before planning, implementing, reviewing, or capturing evidence.
 
 - `XRAY-UPDATES-STATUS.md` is the only lifecycle and decision-proof authority for every target.
 - `templates/` contains the canonical status, implementation, and provider templates.
+- `implementations/0001-IMPL-*` in flat mode or `implementations/repo/0001-IMPL-*` in monorepo mode
+  is the accepted XRAY Updates installation record.
 - `implementations/NNNN-IMPL-INSTR.md` and `NNNN-IMPL-RESULT.md` are used by single-project
   repositories.
 - `implementations/<target>/NNNN-IMPL-INSTR.md` defines one bounded implementation.
