@@ -4,7 +4,7 @@ Standard-ID: xray/updates
 
 Standard-Version: 1.0.0
 
-Canonical-URL: https://standards.xraynetwork.io/v1/XRAY-UPDATES.md
+Canonical-URL: https://standards.xraynetwork.io/updates/v1/XRAY-UPDATES.md
 
 Evidence-backed implementation tracking for humans and coding agents.
 
@@ -37,7 +37,7 @@ From the repository root, download this file:
 
 ```sh
 curl -fsSLo XRAY-UPDATES.md \
-  https://standards.xraynetwork.io/v1/XRAY-UPDATES.md
+  https://standards.xraynetwork.io/updates/v1/XRAY-UPDATES.md
 ```
 
 Then prompt a coding agent:

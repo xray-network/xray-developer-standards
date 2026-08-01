@@ -7,8 +7,8 @@ meta:
   name: XRAY Design
   standard_id: xray/design
   standard_version: 1.0.0
-  canonical_url: "https://standards.xraynetwork.io/v1/XRAY-DESIGN.md"
-  visual_reference: "https://standards.xraynetwork.io/v1/design/"
+  canonical_url: "https://standards.xraynetwork.io/design/v1/XRAY-DESIGN.md"
+  visual_reference: "https://standards.xraynetwork.io/design/v1/"
   tagline: "Content-first finance — a quiet canvas, one electric blue, data is the only color"
   theme: light           # default
   themes: [light, dark]  # dark is opt-in via <html data-theme="dark">
@@ -301,9 +301,9 @@ Standard-ID: xray/design
 
 Standard-Version: 1.0.0
 
-Canonical-URL: https://standards.xraynetwork.io/v1/XRAY-DESIGN.md
+Canonical-URL: https://standards.xraynetwork.io/design/v1/XRAY-DESIGN.md
 
-Visual-Reference: https://standards.xraynetwork.io/v1/design/
+Visual-Reference: https://standards.xraynetwork.io/design/v1/
 
 This document is the complete, canonical XRAY interface standard. Its YAML frontmatter is
 machine-readable; the prose defines how the tokens are applied. When they appear to conflict,
@@ -315,14 +315,14 @@ Download a stable copy into the repository root:
 
 ```sh
 curl -fsSLo XRAY-DESIGN.md \
-  https://standards.xraynetwork.io/v1/XRAY-DESIGN.md
+  https://standards.xraynetwork.io/design/v1/XRAY-DESIGN.md
 ```
 
 Then give a coding agent this prompt:
 
 > Read `XRAY-DESIGN.md` completely before creating or changing product interfaces. Treat it as
 > the source of truth for tokens, layout, components, responsive behavior, accessibility, themes,
-> voice, and interaction states. Use https://standards.xraynetwork.io/v1/design/ as the visual reference.
+> voice, and interaction states. Use https://standards.xraynetwork.io/design/v1/ as the visual reference.
 > Preserve existing repository instructions and add the XRAY developer standards pointer to
 > `AGENTS.md` if it is not present.
 
