@@ -50,9 +50,9 @@ The installer must:
 
 1. Read the repository's root instructions and discover its structure using the rules in §4.
 2. Refuse to overwrite conflicting non-XRAY files or rewrite existing records.
-3. Create `updates/`, the three templates in §11, and one empty status ledger for each inferred
+3. Create `xray-updates/`, the three templates in §11, and one empty status ledger for each inferred
    target. If no target can be inferred safely, create no target directory and explain why.
-4. Create `updates/README.md` from §10.
+4. Create `xray-updates/README.md` from §10.
 5. Add the `AGENTS.md` pointer below idempotently.
 6. Validate the resulting structure using §12.
 7. Report only files created or changed. Do not prepare implementation `0001` during install.
@@ -81,7 +81,7 @@ Installation is idempotent: running it again against a valid installation produc
 ```text
 AGENTS.md
 XRAY-UPDATES.md
-updates/
+xray-updates/
 ├── README.md
 ├── TEMPLATE_IMPL.md
 ├── TEMPLATE_PROVIDER.md
@@ -104,7 +104,7 @@ and meaningful completion validation. Examples include `api`, `web`, `mobile`, `
 `payments`. Sequences are independent per target and use four digits beginning at `0001`.
 Provider sequences are independent per provider.
 
-There is no global status file. `updates/implementations/<target>/STATUS.md` is the sole lifecycle
+There is no global status file. `xray-updates/implementations/<target>/STATUS.md` is the sole lifecycle
 authority for that target. Provider snapshots have no lifecycle ledger and never contain
 implementation instructions or results.
 
@@ -143,7 +143,7 @@ Within an installed repository, apply this order when instructions conflict:
 2. The closest applicable repository agent instructions.
 3. Repository governance, security policy, and active architecture decisions.
 4. This `XRAY-UPDATES.md` standard.
-5. The templates under `updates/`.
+5. The templates under `xray-updates/`.
 6. The selected target's instruction.
 7. Provider contracts, snapshots, accepted results, and other declared evidence.
 
@@ -266,7 +266,7 @@ Human acceptance prompt:
 The human decision operation normally changes only the row state and Decision proof. Do not alter
 the instruction, result, source, or evidence while recording the decision.
 
-## 10. Required `updates/README.md`
+## 10. Required `xray-updates/README.md`
 
 Install this content, replacing `<repository>` with the repository name:
 
@@ -294,14 +294,14 @@ The installer copies the following sections into the named template files withou
 names, required headings, state names, or table columns. Repository guidance may add stricter
 requirements after the canonical content but may not weaken it.
 
-### `updates/TEMPLATE_STATUS.md`
+### `xray-updates/TEMPLATE_STATUS.md`
 
 ````markdown
 # Target implementation status
 
 Status-Template-Version: v1
 
-Every `updates/implementations/<target>/STATUS.md` uses this schema and is the only lifecycle and
+Every `xray-updates/implementations/<target>/STATUS.md` uses this schema and is the only lifecycle and
 decision-proof ledger for that target.
 
 ```markdown
@@ -352,7 +352,7 @@ This is the only lifecycle and decision-proof ledger for <target> implementation
 No implementation records.
 ```
 
-### `updates/TEMPLATE_IMPL.md`
+### `xray-updates/TEMPLATE_IMPL.md`
 
 ````markdown
 # Implementation instruction and result workflow
@@ -447,7 +447,7 @@ be language- and implementation-neutral enough for another target to evaluate wi
 provider artifacts. The result names every input actually consumed and every deviation.
 ````
 
-### `updates/TEMPLATE_PROVIDER.md`
+### `xray-updates/TEMPLATE_PROVIDER.md`
 
 ````markdown
 # Provider contract and snapshot workflow
@@ -570,7 +570,7 @@ An installation or update is valid only when all applicable checks pass:
   missing or duplicated.
 - `DERIVED` and `HYBRID` dependencies resolve to results whose authority ledger says `ACCEPTED`.
 - Provider inputs resolve to complete snapshots whose inventory and hashes verify.
-- No global `STATUS.md` exists below `updates/`.
+- No global `STATUS.md` exists below `xray-updates/`.
 - No provider snapshot contains a status, instruction, result, executable tooling, symlink, or
   undeclared artifact.
 - Terminal records have not changed since entering their terminal state.
@@ -606,7 +606,7 @@ Removal is a human-authorized repository migration, not an automatic cleanup. Be
    accessible.
 3. Remove only the XRAY bullet from `AGENTS.md`; preserve the rest of that file and other XRAY
    standards.
-4. Remove `updates/` and `XRAY-UPDATES.md` only after a human confirms the exact paths.
+4. Remove `xray-updates/` and `XRAY-UPDATES.md` only after a human confirms the exact paths.
 5. Do not remove product source, tests, documentation, or unrelated files.
 
 If any consumer still links to the records, prefer a deprecation notice or archive over deletion.
