@@ -1,4 +1,4 @@
-# XRAY Developer Standards
+# XRAY Standards
 
 Portable standards for XRAY interface design and evidence-backed implementation tracking.
 
@@ -63,4 +63,4 @@ The generated `build/` directory is intentionally ignored by Git.
 
 ## License
 
-XRAY Developer Standards are available under the [MIT License](./LICENSE).
+XRAY Standards are available under the [MIT License](./LICENSE).

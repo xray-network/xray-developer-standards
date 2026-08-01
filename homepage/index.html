@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portable XRAY developer standards for interface design and evidence-backed implementation tracking.">
+  <meta name="description" content="Portable XRAY standards for interface design and evidence-backed implementation tracking.">
   <link rel="icon" type="image/png" href="https://cdn.xraynetwork.io/favicon.png">
-  <title>XRAY Developer Standards</title>
+  <title>XRAY Standards</title>
   <script>
     (function () {
       var saved = localStorage.getItem('xray-theme');
@@ -35,7 +35,7 @@
 <body class="m-0 bg-white font-sans text-sm font-medium leading-[1.4] text-gray-700 antialiased selection:bg-blue-500 selection:text-white dark:bg-black dark:text-gray-300">
   <nav class="sticky top-0 z-50 border-b border-gray-200 bg-white/95 dark:border-gray-900 dark:bg-black/95" aria-label="Primary navigation">
     <div class="mx-auto flex min-h-[68px] w-[min(1240px,calc(100%-32px))] items-center gap-6 max-[620px]:w-[calc(100%-24px)] max-[620px]:gap-2.5">
-      <a class="inline-flex shrink-0 items-end gap-2.5 whitespace-nowrap text-gray-950 no-underline dark:text-white" href="#top" aria-label="XRAY Developer Standards home">
+      <a class="inline-flex shrink-0 items-end gap-2.5 whitespace-nowrap text-gray-950 no-underline dark:text-white" href="#top" aria-label="XRAY Standards home">
         <svg class="block h-auto w-[134px]" viewBox="0 0 640 96" aria-hidden="true"><path d="M69.3727 32.6864L102.506.0007H147.259L88.0101 57.6489 46.3635 94.0582H.345L59.8238 37.3755 69.3727 32.6864ZM0 .0007H46.594L79.037 32.411 147.489 94.058H100.435L66.151 59.718 0 .001Z" fill="currentColor"/><path d="M198.99 94.058H167.928V0H249.15c22.45 0 34.974 10.7 34.974 34.617 0 20.583-9.724 31.683-27.726 33.651l27.841 25.79h-38.77l-24.85-23.446H198.99v23.446Zm0-62.338v11.309h46.709c4.201 0 6.212-1.629 6.212-5.516 0-4.013-2.011-5.793-6.212-5.793H198.99Z" fill="currentColor"/><path d="M409.716 78.473h-83.064V52.959h83.064v25.514ZM378.538 0l-43.142 94.058h-37.275L346.325 0h32.213Zm19.788 94.058L356.104 6.068 355.644 0h32.213l48.204 94.058h-37.735Z" fill="currentColor"/><path d="M477.987 60.958 424.605 0h39.461l29.797 33.237L523.545 0h39l-53.496 61.234v32.824h-31.062v-33.1Z" fill="currentColor"/><path class="text-blue-500" d="M583.269 39.235h56.434v56.434h-56.434z" fill="currentColor"/></svg>
         <span class="translate-y-0.5 font-mono text-xs font-bold leading-none max-[620px]:hidden">STANDARDS</span>
       </a>
@@ -62,7 +62,7 @@
         </div>
       </div>
       <div class="rounded-[20px] border border-gray-200 bg-white p-[30px] dark:border-gray-900 dark:bg-gray-950" aria-label="Standards summary">
-        <div class="flex items-center justify-between gap-3"><span class="font-mono text-xs uppercase tracking-[.08em] text-gray-500">Developer standards</span><span class="inline-flex min-h-[22px] items-center rounded-full bg-green-500 px-2.5 text-xs text-gray-950">Released</span></div>
+        <div class="flex items-center justify-between gap-3"><span class="font-mono text-xs uppercase tracking-[.08em] text-gray-500">XRAY standards</span><span class="inline-flex min-h-[22px] items-center rounded-full bg-green-500 px-2.5 text-xs text-gray-950">Released</span></div>
         <div class="my-8 text-[clamp(48px,6vw,74px)] font-black leading-[.9] tracking-[-.05em] text-gray-950 dark:text-white">02<span class="ml-[.18em] text-[.38em] font-bold tracking-[-.01em] text-gray-500">STANDARDS</span></div>
         <div class="grid gap-3 border-t border-gray-200 pt-5 dark:border-gray-900">
           <div class="flex items-center justify-between gap-4"><span class="text-gray-950 dark:text-white">XRAY Updates</span><span class="font-mono text-xs text-gray-500">IMPLEMENTATION · 1.0.0</span></div>
@@ -97,7 +97,7 @@
               </div>
               <div class="border-l border-gray-200 bg-gray-50 p-6 dark:border-gray-900 dark:bg-black max-[900px]:border-l-0 max-[900px]:border-t max-[620px]:p-[18px]">
                 <div class="mb-4 flex items-center justify-between gap-3"><span class="font-mono text-[11px] uppercase tracking-[.1em] text-gray-500">Installation prompt</span><button class="copy-button inline-flex min-h-9 items-center gap-2 rounded-full border border-gray-200 bg-white px-3 text-xs text-gray-950 outline-none transition hover:bg-gray-100 focus-visible:ring-4 focus-visible:ring-blue-500/15 dark:border-gray-900 dark:bg-gray-800 dark:text-white" type="button" data-copy="updatesPrompt" aria-label="Copy XRAY Updates prompt"><svg class="size-[14px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:1.7]" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"/></svg><span>Copy prompt</span></button></div>
-                <p class="m-0 break-words font-mono text-[13px] leading-[1.65] text-gray-700 dark:text-gray-300" id="updatesPrompt">Read https://standards.xraynetwork.io/updates/v1/XRAY-UPDATES.md completely and install XRAY Updates v1 in this repository. Preserve all existing AGENTS.md instructions, select flat or monorepo implementation storage from repository evidence, infer targets only when nested storage applies, create the accepted XRAY Updates installation record, and do not modify product source. Add the XRAY developer standards pointer to AGENTS.md if it is not present.</p>
+                <p class="m-0 break-words font-mono text-[13px] leading-[1.65] text-gray-700 dark:text-gray-300" id="updatesPrompt">Read https://standards.xraynetwork.io/updates/v1/XRAY-UPDATES.md completely and install XRAY Updates v1 in this repository. Preserve all existing AGENTS.md instructions, select flat or monorepo implementation storage from repository evidence, infer targets only when nested storage applies, create the accepted XRAY Updates installation record, and do not modify product source. Add the XRAY standards pointer to AGENTS.md if it is not present.</p>
               </div>
             </div>
           </article>
@@ -121,7 +121,7 @@
               </div>
               <div class="border-l border-gray-200 bg-gray-50 p-6 dark:border-gray-900 dark:bg-black max-[900px]:border-l-0 max-[900px]:border-t max-[620px]:p-[18px]">
                 <div class="mb-4 flex items-center justify-between gap-3"><span class="font-mono text-[11px] uppercase tracking-[.1em] text-gray-500">Adoption prompt</span><button class="copy-button inline-flex min-h-9 items-center gap-2 rounded-full border border-gray-200 bg-white px-3 text-xs text-gray-950 outline-none transition hover:bg-gray-100 focus-visible:ring-4 focus-visible:ring-blue-500/15 dark:border-gray-900 dark:bg-gray-800 dark:text-white" type="button" data-copy="designPrompt" aria-label="Copy XRAY Design prompt"><svg class="size-[14px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:1.7]" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"/></svg><span>Copy prompt</span></button></div>
-                <p class="m-0 break-words font-mono text-[13px] leading-[1.65] text-gray-700 dark:text-gray-300" id="designPrompt">Read https://standards.xraynetwork.io/design/v1/XRAY-DESIGN.md completely before creating or changing product interfaces. Treat it as the source of truth for tokens, layout, components, responsive behavior, accessibility, themes, voice, and interaction states. Use https://standards.xraynetwork.io/design/v1/ as the visual reference. Preserve existing repository instructions and add the XRAY developer standards pointer to AGENTS.md if it is not present.</p>
+                <p class="m-0 break-words font-mono text-[13px] leading-[1.65] text-gray-700 dark:text-gray-300" id="designPrompt">Read https://standards.xraynetwork.io/design/v1/XRAY-DESIGN.md completely before creating or changing product interfaces. Treat it as the source of truth for tokens, layout, components, responsive behavior, accessibility, themes, voice, and interaction states. Use https://standards.xraynetwork.io/design/v1/ as the visual reference. Preserve existing repository instructions and add the XRAY standards pointer to AGENTS.md if it is not present.</p>
               </div>
             </div>
           </article>
@@ -146,7 +146,7 @@
         <div class="font-mono text-xs uppercase tracking-[.1em] text-gray-500">03 — License</div>
         <div class="rounded-[20px] border border-gray-200 bg-white p-6 dark:border-gray-900 dark:bg-gray-950 max-[620px]:p-[18px]">
           <div class="flex items-start justify-between gap-6 max-[620px]:flex-col">
-            <div><h2 class="m-0 text-[clamp(30px,4vw,48px)] font-bold leading-none tracking-[-.035em] text-gray-950 dark:text-white">MIT licensed.</h2><p class="mb-0 mt-3.5 max-w-[680px] text-base text-gray-500">Use, copy, modify, and distribute XRAY Developer Standards under the permissive MIT License.</p></div>
+            <div><h2 class="m-0 text-[clamp(30px,4vw,48px)] font-bold leading-none tracking-[-.035em] text-gray-950 dark:text-white">MIT licensed.</h2><p class="mb-0 mt-3.5 max-w-[680px] text-base text-gray-500">Use, copy, modify, and distribute XRAY Standards under the permissive MIT License.</p></div>
             <a class="inline-flex min-h-10 shrink-0 items-center justify-center rounded-full bg-gray-100 px-[18px] text-base text-gray-950 no-underline transition hover:bg-gray-200 dark:bg-gray-800 dark:text-white" href="https://github.com/xray-network/xray-developer-standards/blob/main/LICENSE">Open license</a>
           </div>
         </div>
@@ -156,7 +156,7 @@
 
   <footer class="border-t border-gray-200 py-[50px] dark:border-gray-900">
     <div class="mx-auto flex w-[min(1240px,calc(100%-32px))] items-end justify-between gap-8 max-[620px]:w-[calc(100%-24px)] max-[620px]:flex-col max-[620px]:items-start">
-      <div><strong class="text-2xl text-gray-950 dark:text-white">XRAY Developer Standards</strong><p class="mb-0 mt-2 text-gray-500">Explicit rules. Portable context. Reviewable work.</p></div>
+      <div><strong class="text-2xl text-gray-950 dark:text-white">XRAY Standards</strong><p class="mb-0 mt-2 text-gray-500">Explicit rules. Portable context. Reviewable work.</p></div>
       <div class="flex flex-wrap gap-5"><a class="text-blue-500 no-underline hover:underline dark:text-blue-400" href="./updates/v1/XRAY-UPDATES.md">XRAY-UPDATES.md</a><a class="text-blue-500 no-underline hover:underline dark:text-blue-400" href="./design/v1/XRAY-DESIGN.md">XRAY-DESIGN.md</a><a class="text-blue-500 no-underline hover:underline dark:text-blue-400" href="https://github.com/xray-network/xray-developer-standards/blob/main/LICENSE">MIT License</a><a class="text-blue-500 no-underline hover:underline dark:text-blue-400" href="https://github.com/xray-network/xray-developer-standards">GitHub repository</a><a class="text-blue-500 no-underline hover:underline dark:text-blue-400" href="#top">Back to top</a></div>
     </div>
   </footer>

@@ -69,11 +69,12 @@ If `AGENTS.md` does not exist, create it with this section. If it exists, preser
 instruction and add only the missing heading or bullet:
 
 ```markdown
-## XRAY developer standards
+## XRAY standards
 
 This repository uses the following XRAY standards:
 
 - Read `.xray/updates/XRAY-UPDATES.md` before planning or implementing tracked changes.
+- If the user mentions `silent` or `silently`, do not create an implementation record for that request.
 ```
 
 If the section already exists, merge the missing bullet into it. Never duplicate the heading,
@@ -266,6 +267,10 @@ compatibility, or validation changes must be documented as deviations or replace
 Planning and implementation are separate operations except for the required bootstrap installation
 record in §2. A request to identify or prepare the next update does not authorize product-source
 changes.
+
+If the user mentions `silent` or `silently`, do not create or update an implementation
+instruction, result, or ledger row for that request. Silent mode skips XRAY Updates tracking; it
+does not cancel requested source changes or their validation.
 
 1. Read repository guidance, relevant decisions, applicable source/tests/manifest/README, the
    applicable section in `.xray/updates/XRAY-UPDATES-STATUS.md`, all templates, and candidate

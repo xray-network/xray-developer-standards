@@ -1,4 +1,4 @@
-# XRAY Developer Standards updates
+# XRAY Standards updates
 
 This directory is the canonical home for the XRAY Updates standard, aggregate lifecycle ledger,
 implementation instructions and results, and shared provider evidence. Read `XRAY-UPDATES.md`
