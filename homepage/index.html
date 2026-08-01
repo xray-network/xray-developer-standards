@@ -78,31 +78,51 @@
           <div><h2 class="m-0 max-w-[760px] text-[clamp(30px,4vw,48px)] font-bold leading-none tracking-[-.035em] text-gray-950 dark:text-white">Copy one prompt. Give every contributor the same context.</h2><p class="mt-3.5 max-w-[720px] text-base text-gray-500">Each document is self-contained. Open the Markdown to read the full standard, or copy its adoption prompt directly into your coding agent.</p></div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 max-[900px]:grid-cols-1">
-          <article class="flex min-h-[500px] flex-col rounded-[20px] border border-gray-200 bg-white p-6 dark:border-gray-900 dark:bg-gray-950 max-[620px]:p-[18px]">
-            <div class="flex items-center justify-between gap-3"><span class="font-mono text-[11px] uppercase tracking-[.1em] text-gray-500">xray/updates · 1.0.0</span><span class="size-3 rounded-full bg-green-500" aria-hidden="true"></span></div>
-            <h3 class="mb-3 mt-8 text-[30px] font-bold leading-none tracking-[-.03em] text-gray-950 dark:text-white">XRAY Updates</h3>
-            <p class="m-0 text-base text-gray-500">Evidence-backed implementation tracking with bounded plans, immutable provider snapshots, target-local ledgers, validation records, and human acceptance.</p>
-            <div class="my-6 flex flex-wrap gap-2">
-              <a class="inline-flex min-h-10 items-center rounded-full bg-blue-500 px-[18px] text-base text-white no-underline transition hover:bg-blue-400 active:bg-blue-600" href="./updates/v1/XRAY-UPDATES.md">Open XRAY-UPDATES.md</a>
-            </div>
-            <div class="mt-auto rounded-2xl border border-gray-200 bg-gray-50 p-[18px] dark:border-gray-900 dark:bg-black">
-              <div class="mb-4 flex items-center justify-between gap-3"><span class="font-mono text-[11px] uppercase tracking-[.1em] text-gray-500">Installation prompt</span><button class="copy-button inline-flex min-h-9 items-center gap-2 rounded-full border border-gray-200 bg-white px-3 text-xs text-gray-950 outline-none transition hover:bg-gray-100 focus-visible:ring-4 focus-visible:ring-blue-500/15 dark:border-gray-900 dark:bg-gray-800 dark:text-white" type="button" data-copy="updatesPrompt" aria-label="Copy XRAY Updates prompt"><svg class="size-[14px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:1.7]" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"/></svg><span>Copy prompt</span></button></div>
-              <p class="m-0 break-words font-mono text-[13px] leading-[1.65] text-gray-700 dark:text-gray-300" id="updatesPrompt">Read https://standards.xraynetwork.io/updates/v1/XRAY-UPDATES.md completely and install XRAY Updates v1 in this repository. Preserve all existing AGENTS.md instructions, infer suitable implementation targets from the repository, create only the tracking structure, and do not modify product source. Add the XRAY developer standards pointer to AGENTS.md if it is not present.</p>
+        <div class="grid gap-4">
+          <article class="overflow-hidden rounded-[20px] border border-gray-200 bg-white dark:border-gray-900 dark:bg-gray-950">
+            <div class="grid grid-cols-[minmax(0,1fr)_minmax(0,calc(46%_-_1.84rem))] gap-8 max-[900px]:grid-cols-1 max-[900px]:gap-0">
+              <div class="flex flex-col p-6 max-[620px]:p-[18px]">
+                <div class="flex items-center justify-between gap-3"><span class="font-mono text-[11px] uppercase tracking-[.1em] text-gray-500">xray/updates · 1.0.0</span><span class="size-3 rounded-full bg-green-500" aria-hidden="true"></span></div>
+                <h3 class="mb-4 mt-8 text-[30px] font-bold leading-none tracking-[-.03em] text-gray-950 dark:text-white">XRAY Updates</h3>
+                <p class="m-0 text-base leading-[1.6] text-gray-950 dark:text-white">A repository-local implementation ledger that connects each bounded plan to its declared evidence, completed source changes, validation results, and final human decision.</p>
+                <p class="mb-0 mt-3 text-base leading-[1.6] text-gray-500">Use it to make work reproducible across teams and coding agents. Target-specific status ledgers keep ownership clear, immutable provider snapshots preserve upstream evidence, and terminal records protect the review history.</p>
+                <div class="mt-5 flex flex-wrap gap-2" aria-label="XRAY Updates covers">
+                  <span class="rounded-full bg-gray-100 px-3 py-1.5 text-xs text-gray-700 dark:bg-gray-800 dark:text-gray-300">Bounded planning</span>
+                  <span class="rounded-full bg-gray-100 px-3 py-1.5 text-xs text-gray-700 dark:bg-gray-800 dark:text-gray-300">Evidence provenance</span>
+                  <span class="rounded-full bg-gray-100 px-3 py-1.5 text-xs text-gray-700 dark:bg-gray-800 dark:text-gray-300">Human acceptance</span>
+                </div>
+                <div class="mt-6 flex flex-wrap gap-2">
+                  <a class="inline-flex min-h-10 items-center rounded-full bg-blue-500 px-[18px] text-base text-white no-underline transition hover:bg-blue-400 active:bg-blue-600" href="./updates/v1/XRAY-UPDATES.md">Open XRAY-UPDATES.md</a>
+                </div>
+              </div>
+              <div class="border-l border-gray-200 bg-gray-50 p-6 dark:border-gray-900 dark:bg-black max-[900px]:border-l-0 max-[900px]:border-t max-[620px]:p-[18px]">
+                <div class="mb-4 flex items-center justify-between gap-3"><span class="font-mono text-[11px] uppercase tracking-[.1em] text-gray-500">Installation prompt</span><button class="copy-button inline-flex min-h-9 items-center gap-2 rounded-full border border-gray-200 bg-white px-3 text-xs text-gray-950 outline-none transition hover:bg-gray-100 focus-visible:ring-4 focus-visible:ring-blue-500/15 dark:border-gray-900 dark:bg-gray-800 dark:text-white" type="button" data-copy="updatesPrompt" aria-label="Copy XRAY Updates prompt"><svg class="size-[14px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:1.7]" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"/></svg><span>Copy prompt</span></button></div>
+                <p class="m-0 break-words font-mono text-[13px] leading-[1.65] text-gray-700 dark:text-gray-300" id="updatesPrompt">Read https://standards.xraynetwork.io/updates/v1/XRAY-UPDATES.md completely and install XRAY Updates v1 in this repository. Preserve all existing AGENTS.md instructions, infer suitable implementation targets from the repository, create only the tracking structure, and do not modify product source. Add the XRAY developer standards pointer to AGENTS.md if it is not present.</p>
+              </div>
             </div>
           </article>
 
-          <article class="flex min-h-[500px] flex-col rounded-[20px] border border-gray-200 bg-white p-6 dark:border-gray-900 dark:bg-gray-950 max-[620px]:p-[18px]">
-            <div class="flex items-center justify-between gap-3"><span class="font-mono text-[11px] uppercase tracking-[.1em] text-gray-500">xray/design · 1.0.0</span><span class="size-3 rounded-full bg-green-500" aria-hidden="true"></span></div>
-            <h3 class="mb-3 mt-8 text-[30px] font-bold leading-none tracking-[-.03em] text-gray-950 dark:text-white">XRAY Design</h3>
-            <p class="m-0 text-base text-gray-500">A content-first interface system with machine-readable tokens, component rules, two themes, responsive behavior, and accessible interaction states.</p>
-            <div class="my-6 flex flex-wrap gap-2">
-              <a class="inline-flex min-h-10 items-center rounded-full bg-blue-500 px-[18px] text-base text-white no-underline transition hover:bg-blue-400 active:bg-blue-600" href="./design/v1/XRAY-DESIGN.md">Open XRAY-DESIGN.md</a>
-              <a class="inline-flex min-h-10 items-center rounded-full bg-gray-100 px-[18px] text-base text-gray-950 no-underline transition hover:bg-gray-200 dark:bg-gray-800 dark:text-white" href="./design/v1/">Design example</a>
-            </div>
-            <div class="mt-auto rounded-2xl border border-gray-200 bg-gray-50 p-[18px] dark:border-gray-900 dark:bg-black">
-              <div class="mb-4 flex items-center justify-between gap-3"><span class="font-mono text-[11px] uppercase tracking-[.1em] text-gray-500">Adoption prompt</span><button class="copy-button inline-flex min-h-9 items-center gap-2 rounded-full border border-gray-200 bg-white px-3 text-xs text-gray-950 outline-none transition hover:bg-gray-100 focus-visible:ring-4 focus-visible:ring-blue-500/15 dark:border-gray-900 dark:bg-gray-800 dark:text-white" type="button" data-copy="designPrompt" aria-label="Copy XRAY Design prompt"><svg class="size-[14px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:1.7]" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"/></svg><span>Copy prompt</span></button></div>
-              <p class="m-0 break-words font-mono text-[13px] leading-[1.65] text-gray-700 dark:text-gray-300" id="designPrompt">Read https://standards.xraynetwork.io/design/v1/XRAY-DESIGN.md completely before creating or changing product interfaces. Treat it as the source of truth for tokens, layout, components, responsive behavior, accessibility, themes, voice, and interaction states. Use https://standards.xraynetwork.io/design/v1/ as the visual reference. Preserve existing repository instructions and add the XRAY developer standards pointer to AGENTS.md if it is not present.</p>
+          <article class="overflow-hidden rounded-[20px] border border-gray-200 bg-white dark:border-gray-900 dark:bg-gray-950">
+            <div class="grid grid-cols-[minmax(0,1fr)_minmax(0,calc(46%_-_1.84rem))] gap-8 max-[900px]:grid-cols-1 max-[900px]:gap-0">
+              <div class="flex flex-col p-6 max-[620px]:p-[18px]">
+                <div class="flex items-center justify-between gap-3"><span class="font-mono text-[11px] uppercase tracking-[.1em] text-gray-500">xray/design · 1.0.0</span><span class="size-3 rounded-full bg-green-500" aria-hidden="true"></span></div>
+                <h3 class="mb-4 mt-8 text-[30px] font-bold leading-none tracking-[-.03em] text-gray-950 dark:text-white">XRAY Design</h3>
+                <p class="m-0 text-base leading-[1.6] text-gray-950 dark:text-white">A complete interface contract for building recognizable XRAY products. It combines machine-readable design tokens with human-readable rules for layout, components, responsive behavior, interaction, accessibility, and product voice.</p>
+                <p class="mb-0 mt-3 text-base leading-[1.6] text-gray-500">Use it when creating or changing an interface so light and dark themes, financial data, controls, states, and copy remain consistent. The visual reference demonstrates the standard as working components and product patterns.</p>
+                <div class="mt-5 flex flex-wrap gap-2" aria-label="XRAY Design covers">
+                  <span class="rounded-full bg-gray-100 px-3 py-1.5 text-xs text-gray-700 dark:bg-gray-800 dark:text-gray-300">Tokens and themes</span>
+                  <span class="rounded-full bg-gray-100 px-3 py-1.5 text-xs text-gray-700 dark:bg-gray-800 dark:text-gray-300">Components and layouts</span>
+                  <span class="rounded-full bg-gray-100 px-3 py-1.5 text-xs text-gray-700 dark:bg-gray-800 dark:text-gray-300">Accessibility and voice</span>
+                </div>
+                <div class="mt-6 flex flex-wrap gap-2">
+                  <a class="inline-flex min-h-10 items-center rounded-full bg-blue-500 px-[18px] text-base text-white no-underline transition hover:bg-blue-400 active:bg-blue-600" href="./design/v1/XRAY-DESIGN.md">Open XRAY-DESIGN.md</a>
+                  <a class="inline-flex min-h-10 items-center rounded-full bg-gray-100 px-[18px] text-base text-gray-950 no-underline transition hover:bg-gray-200 dark:bg-gray-800 dark:text-white" href="./design/v1/">Design example</a>
+                </div>
+              </div>
+              <div class="border-l border-gray-200 bg-gray-50 p-6 dark:border-gray-900 dark:bg-black max-[900px]:border-l-0 max-[900px]:border-t max-[620px]:p-[18px]">
+                <div class="mb-4 flex items-center justify-between gap-3"><span class="font-mono text-[11px] uppercase tracking-[.1em] text-gray-500">Adoption prompt</span><button class="copy-button inline-flex min-h-9 items-center gap-2 rounded-full border border-gray-200 bg-white px-3 text-xs text-gray-950 outline-none transition hover:bg-gray-100 focus-visible:ring-4 focus-visible:ring-blue-500/15 dark:border-gray-900 dark:bg-gray-800 dark:text-white" type="button" data-copy="designPrompt" aria-label="Copy XRAY Design prompt"><svg class="size-[14px] fill-none stroke-current [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:1.7]" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"/></svg><span>Copy prompt</span></button></div>
+                <p class="m-0 break-words font-mono text-[13px] leading-[1.65] text-gray-700 dark:text-gray-300" id="designPrompt">Read https://standards.xraynetwork.io/design/v1/XRAY-DESIGN.md completely before creating or changing product interfaces. Treat it as the source of truth for tokens, layout, components, responsive behavior, accessibility, themes, voice, and interaction states. Use https://standards.xraynetwork.io/design/v1/ as the visual reference. Preserve existing repository instructions and add the XRAY developer standards pointer to AGENTS.md if it is not present.</p>
+              </div>
             </div>
           </article>
         </div>
