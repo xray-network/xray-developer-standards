@@ -1,7 +1,7 @@
 # XRAY Developer Standards updates
 
 This directory is the canonical ledger for implementation instructions, results, per-target
-lifecycle state, and shared provider evidence. Read `../XRAY-UPDATES.md` before planning,
+lifecycle state, and shared provider evidence. Read `../../XRAY-UPDATES.md` before planning,
 implementing, reviewing, or capturing evidence.
 
 - `implementations/<target>/STATUS.md` is the only lifecycle authority for that target.

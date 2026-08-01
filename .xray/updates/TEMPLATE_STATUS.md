@@ -2,7 +2,7 @@
 
 Status-Template-Version: v1
 
-Every `xray-updates/implementations/<target>/STATUS.md` uses this schema and is the only lifecycle and
+Every `.xray/updates/implementations/<target>/STATUS.md` uses this schema and is the only lifecycle and
 decision-proof ledger for that target.
 
 ```markdown
